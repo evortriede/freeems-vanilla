@@ -33,10 +33,14 @@
 
 
 #define TABLELOOKUP_C
+#ifndef CROSS_COMPILE_TEST
 #include "inc/freeEMS.h"
 #include "inc/commsISRs.h"
 #include "inc/tableLookup.h"
 #include "inc/blockDetailsLookup.h"
+#else
+#include "path/to/header.for.this.file.while.under.tests.h" // Where this file contains various imports of standard replacement headers and custom setup for this file just stub what's required for a start
+#endif
 
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
