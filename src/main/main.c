@@ -69,9 +69,10 @@ int  main(){ /// @todo TODO maybe move this to paged flash ?
 			activeFuelChannels[fixedConfigs1.schedulingSettings.outputEventPinNumbers[outputEvent]] = outputEvent;
 		}
 	}
-	sampleEachADC(ADCBuffers);       // Read sensors
-	generateCoreVars();              // Calculate BRV
-	generateDerivedVars();           // Calculate IDT
+	sampleEachADC(ADCBuffers);       // Read sensors - from utils.h/.c
+	generateCoreVars();              // Calculate BRV - from coreVarsGenerator.h/.c
+	generateDerivedVars();           // Calculate IDT - from derivedVarsGenerator.h/.c
+	// lookupTwoDTanlesUS is in tableLookup.h/.c
 	unsigned short primingPulseWidth = lookupTwoDTableUS((twoDTableUS*)&TablesA.SmallTablesA.primingVolumeTable, CoreVars->CHT);
 	primingPulseWidth = safeAdd(primingPulseWidth, DerivedVars->IDT);
 	unsigned short edgeTimeStamp = TCNT;
@@ -90,7 +91,7 @@ int  main(){ /// @todo TODO maybe move this to paged flash ?
 		if(activeFuelChannels[outputPin] < MAX_NUMBER_OF_OUTPUT_EVENTS){
 			outputEventPulseWidthsMath[activeFuelChannels[outputPin]] = primingPulseWidth;
 			outputEventDelayFinalPeriod[activeFuelChannels[outputPin]] = SHORTHALF;
-			schedulePortTPin(activeFuelChannels[outputPin], timeStamp);
+			schedulePortTPin(activeFuelChannels[outputPin], timeStamp); // from 
 		}
 	}
 
