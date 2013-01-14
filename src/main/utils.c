@@ -35,9 +35,11 @@
 
 
 #define UTILS_C
+#ifndef UNIT_TEST_CONFIG
 #include "inc/freeEMS.h"
 #include "inc/commsISRs.h"
 #include "inc/utils.h"
+#endif
 #include <string.h>
 
 
@@ -86,6 +88,8 @@ unsigned short safeTrim(unsigned short addend1, signed short addend2){
 
 /** @brief Scale without overflow
  *
+ * TODO: I suspect that this comment needs updating as it does not seem to match the code - Eric
+ *
  * Takes a base value and a scaler where 0x8000/32768 means 100%, 0 means 0%
  * and 0xFFFF/65535 means 200%, and returns the baseValue multiplied, in effect, by the
  * resulting percentage figure.
@@ -114,10 +118,10 @@ unsigned short safeScale(unsigned short baseValue, unsigned short dividend, unsi
  *
  * @todo TODO change parameter style to be a pointer to a register and a mask?
  *
- * @param bool which set of data to enable.
+ * @param f which set of data to enable.
  */
-void setupPagedRAM(unsigned char bool){
-	if(bool){
+void setupPagedRAM(unsigned char f){
+	if(f){
 		currentFuelRPage = RPAGE_FUEL_ONE;
 		currentTimeRPage = RPAGE_TIME_ONE;
 		currentTuneRPage = RPAGE_TUNE_ONE;
