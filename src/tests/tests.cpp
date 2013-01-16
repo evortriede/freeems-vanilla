@@ -17,11 +17,12 @@ typedef int (*testType)(int, char**);
 		&utilTestMain,
 		&tableLookupTestMain
 };
+unsigned int nTests = sizeof(rgTests)/sizeof(testType);
 
 int main(int argc, char **argv) {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	cout << "!!!Hello World!!! " << nTests << endl; // prints !!!Hello World!!!
 
-	for (unsigned int i = 0; i < sizeof(rgTests); i++)
+	for (unsigned int i = 0; i < nTests; i++)
 	{
 		testType test = rgTests[i];
 		test(argc, argv);

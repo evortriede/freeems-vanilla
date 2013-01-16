@@ -1,3 +1,5 @@
+Debug/
+
 # Doxygen build files and output
 doxygen.output
 docs/doxygen-html/

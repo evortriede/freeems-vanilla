@@ -9,10 +9,10 @@
 #define UNIT_TEST_CONFIG
 #ifdef never_defined
 #endif
-#include "../../main/inc/containerTypes.h"
-#include "../../main/inc/globalDefines.h"
-#include "../../main/inc/memory.h"
-#include "../../main/inc/9S12XDP512.h"
+#include "../main/inc/containerTypes.h"
+#include "../main/inc/globalDefines.h"
+#include "../main/inc/memory.h"
+#include "../main/inc/9S12XDP512.h"
 
 #undef FPAGE_FE
 #undef FPAGE_F8
@@ -20,13 +20,13 @@
 #define FPAGE_FE
 #define FPAGE_F8
 
-#include "../../main/inc/utils.h"
+#include "../main/inc/utils.h"
 
 #undef RPAGE
 
 unsigned char currentFuelRPage, currentTimeRPage, currentTuneRPage, RPAGE;
 
-#include "../../main/utils.c"
+#include "../main/utils.c"
 
 class utilTest : public ::testing::Test {
  protected:
