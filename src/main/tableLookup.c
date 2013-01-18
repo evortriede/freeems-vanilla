@@ -33,11 +33,12 @@
 
 
 #define TABLELOOKUP_C
+#ifndef UNIT_TEST_CONFIG
 #include "inc/freeEMS.h"
 #include "inc/commsISRs.h"
 #include "inc/tableLookup.h"
 #include "inc/blockDetailsLookup.h"
-
+#endif
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/

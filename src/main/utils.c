@@ -99,6 +99,10 @@ unsigned short safeTrim(unsigned short addend1, signed short addend2){
  * @param divisor
  */
 unsigned short safeScale(unsigned short baseValue, unsigned short dividend, unsigned short divisor){
+	if (divisor == 0)
+	{
+		return SHORTMAX;
+	}
 	/* Perform the scaling */
 	unsigned short scaled = ((unsigned long)baseValue * dividend) / divisor;
 
