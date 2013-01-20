@@ -133,16 +133,17 @@ unsigned short lookupMainTable(unsigned short realRPM, unsigned short realLoad, 
 
 	unsigned char RPMIndex;
 	for(RPMIndex=0;RPMIndex<Table->RPMLength;RPMIndex++){
-		if(Table->RPM[RPMIndex] < realRPM){
-			lowRPMValue = Table->RPM[RPMIndex];
+		unsigned int value=Table->RPM[RPMIndex];
+		if(value < realRPM){
+			lowRPMValue = value;
 			lowRPMIndex = RPMIndex;
-		}else if(Table->RPM[RPMIndex] > realRPM){
-			highRPMValue = Table->RPM[RPMIndex];
+		}else if(value > realRPM){
+			highRPMValue = value;
 			highRPMIndex = RPMIndex;
 			break;
-		}else if(Table->RPM[RPMIndex] == realRPM){
-			lowRPMValue = Table->RPM[RPMIndex];
-			highRPMValue = Table->RPM[RPMIndex];
+		}else if(value == realRPM){
+			lowRPMValue = value;
+			highRPMValue = value;
 			lowRPMIndex = RPMIndex;
 			highRPMIndex = RPMIndex;
 			break;
@@ -158,16 +159,17 @@ unsigned short lookupMainTable(unsigned short realRPM, unsigned short realLoad, 
 
 	unsigned char LoadIndex;
 	for(LoadIndex=0;LoadIndex<Table->LoadLength;LoadIndex++){
-		if(Table->Load[LoadIndex] < realLoad){
-			lowLoadValue = Table->Load[LoadIndex];
+		unsigned short value = Table->Load[LoadIndex];
+		if(value < realLoad){
+			lowLoadValue = value;
 			lowLoadIndex = LoadIndex;
-		}else if(Table->Load[LoadIndex] > realLoad){
-			highLoadValue = Table->Load[LoadIndex];
+		}else if(value > realLoad){
+			highLoadValue = value;
 			highLoadIndex = LoadIndex;
 			break;
-		}else if(Table->Load[LoadIndex] == realLoad){
-			lowLoadValue = Table->Load[LoadIndex];
-			highLoadValue = Table->Load[LoadIndex];
+		}else if(value == realLoad){
+			lowLoadValue = value;
+			highLoadValue = value;
 			lowLoadIndex = LoadIndex;
 			highLoadIndex = LoadIndex;
 			break;
@@ -216,9 +218,6 @@ unsigned short lookupMainTable(unsigned short realRPM, unsigned short realLoad, 
  */
 unsigned short lookupTwoDTableUS(twoDTableUS * Table, unsigned short Value){
 
-	/* Find the bounding axis indices, axis values and lookup values */
-	unsigned char lowIndex = 0;
-	unsigned char highIndex = 15;
 	/* If never set in the loop, low value will equal high value and will be on the edge of the map */
 	unsigned short lowAxisValue = Table->Axis[0];
 	unsigned short highAxisValue = Table->Axis[15];
@@ -227,17 +226,17 @@ unsigned short lookupTwoDTableUS(twoDTableUS * Table, unsigned short Value){
 
 	unsigned char Index;
 	for(Index=0;Index<16;Index++){
-		if(Table->Axis[Index] < Value){
-			lowIndex = Index;
-			lowAxisValue = Table->Axis[Index];
-			lowLookupValue = Table->Values[Index];
-		}else if(Table->Axis[Index] > Value){
-			highIndex = Index;
-			highAxisValue = Table->Axis[Index];
-			highLookupValue = Table->Values[Index];
+		unsigned short axis = Table->Axis[Index];
+		unsigned short value = Table->Values[Index];
+		if(axis < Value){
+			lowAxisValue = axis;
+			lowLookupValue = value;
+		}else if(axis > Value){
+			highAxisValue = axis;
+			highLookupValue = value;
 			break;
-		}else if(Table->Axis[Index] == Value){
-			return Table->Values[Index]; // If right on, just return the value
+		}else if(axis == Value){
+			return value; // If right on, just return the value
 		}
 	}
 
