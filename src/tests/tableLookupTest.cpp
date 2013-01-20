@@ -32,14 +32,65 @@ class tableLookupTest : public ::testing::Test {
 
 };
 
+static blockDetails myBlockDetails = {block_is_main_table, 0, 0, 0};
+
 static unsigned short my_lookupBlockDetails(unsigned short locationId, blockDetails* details)
 {
+	details->FlashAddress=myBlockDetails.FlashAddress;
+	details->FlashPage = myBlockDetails.FlashPage;
+	details->RAMAddress = myBlockDetails.RAMAddress;
+	details->RAMPage = myBlockDetails.RAMPage;
+	details->flags = myBlockDetails.flags;
+	details->parent = myBlockDetails.parent;
+	details->size = myBlockDetails.size;
 	return 0;
 }
 
 TEST_F(tableLookupTest, SanityOfGtest) {
   EXPECT_EQ(0, 0);
 }
+
+TEST_F(tableLookupTest, lookupMainTableShouldReturn0When_block_is_main_table_BitIsNotSetInFlags)
+{
+	myBlockDetails.flags=0;
+	EXPECT_EQ(0, lookupMainTable(0,0,0));
+}
+
+TEST_F(tableLookupTest, lookupMainTableShouldReturnLookedUpResultWithSpotOnValues)
+{
+	mainTable Table = {4,4,{2,4,6,8},{2,4,6,8},
+			{10,20,30,40,
+			 20,30,40,50,
+			 30,40,50,60,
+			 40,50,60,70
+			}
+	};
+	myBlockDetails.flags = block_is_main_table;
+	myBlockDetails.RAMAddress = &Table;
+	EXPECT_EQ(10, lookupMainTable(2,2,0));
+	EXPECT_EQ(30, lookupMainTable(4,4,0));
+	EXPECT_EQ(50, lookupMainTable(6,6,0));
+	EXPECT_EQ(70, lookupMainTable(8,8,0));
+}
+
+TEST_F(tableLookupTest, lookupMainTableShouldReturnInterpolatedResultWithInbetweenValues)
+{
+	mainTable Table = {4,4,{2,4,6,8},{2,4,6,8},
+			{10,20,30,40,
+			 20,30,40,50,
+			 30,40,50,60,
+			 40,50,60,70
+			}
+	};
+	myBlockDetails.flags = block_is_main_table;
+	myBlockDetails.RAMAddress = &Table;
+	EXPECT_EQ(10, lookupMainTable(1,1,0));
+	EXPECT_EQ(20, lookupMainTable(3,3,0));
+	EXPECT_EQ(40, lookupMainTable(5,5,0));
+	EXPECT_EQ(60, lookupMainTable(7,7,0));
+	EXPECT_EQ(70, lookupMainTable(9,9,0));
+}
+
 
 TEST_F(tableLookupTest, lookupTwoDTableUSShouldReturnValueCorrespondingToExactMatch)
 {
@@ -53,13 +104,14 @@ TEST_F(tableLookupTest, lookupTwoDTableUSShouldReturnValueCorrespondingToExactMa
 
 TEST_F(tableLookupTest, lookupTwoDTableUSShouldReturnInterpolatedValueForInbetweenInputValues)
 {
-	twoDTableUS Table = {{2,4,6,8,10},{100,200,300,400,500}};
-	//EXPECT_EQ(50, lookupTwoDTableUS(&Table, 1));  TODO: This test case should work or at least not code dump
-	// Here's a question: should the foregoing assume 0 as the implicit -1th table value or should we return the 0th value?
+	twoDTableUS Table = {{2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32},
+			{100,200,300,400,500,0,0,0,0,0,0,0,0,0,0,600}};
+	EXPECT_EQ(100, lookupTwoDTableUS(&Table, 1));
 	EXPECT_EQ(150, lookupTwoDTableUS(&Table, 3));
 	EXPECT_EQ(250, lookupTwoDTableUS(&Table, 5));
 	EXPECT_EQ(350, lookupTwoDTableUS(&Table, 7));
 	EXPECT_EQ(450, lookupTwoDTableUS(&Table, 9));
+	EXPECT_EQ(600, lookupTwoDTableUS(&Table, 33));
 }
 
 TEST_F(tableLookupTest, validateMainTableShouldFailWithInvalidRPMLength)

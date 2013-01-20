@@ -183,11 +183,24 @@ unsigned short lookupMainTable(unsigned short realRPM, unsigned short realLoad, 
 	/* Restore the RAM page before doing the math */
 	RPAGE = oldRPage;
 
+	unsigned short lowRPMIntLoad, highRPMIntLoad;
 	/* Find the two side values to interpolate between by interpolation */
-	unsigned short lowRPMIntLoad = lowRPMLowLoad + (((signed long)((signed long)lowRPMHighLoad - lowRPMLowLoad) * (realLoad - lowLoadValue))/ (highLoadValue - lowLoadValue));
-	unsigned short highRPMIntLoad = highRPMLowLoad + (((signed long)((signed long)highRPMHighLoad - highRPMLowLoad) * (realLoad - lowLoadValue))/ (highLoadValue - lowLoadValue));
+	if (lowRPMLowLoad == lowRPMHighLoad){
+		lowRPMIntLoad = lowRPMLowLoad;
+	} else {
+		lowRPMIntLoad = lowRPMLowLoad + (((signed long)((signed long)lowRPMHighLoad - lowRPMLowLoad) * (realLoad - lowLoadValue))/ (highLoadValue - lowLoadValue));
+	}
+
+	if (highRPMLowLoad == highRPMHighLoad){
+		highRPMIntLoad = highRPMLowLoad;
+	} else {
+		highRPMIntLoad = highRPMLowLoad + (((signed long)((signed long)highRPMHighLoad - highRPMLowLoad) * (realLoad - lowLoadValue))/ (highLoadValue - lowLoadValue));
+	}
 
 	/* Interpolate between the two side values and return the result */
+	if (highRPMIntLoad == lowRPMIntLoad){
+		return lowRPMIntLoad;
+	}
 	return lowRPMIntLoad + (((signed long)((signed long)highRPMIntLoad - lowRPMIntLoad) * (realRPM - lowRPMValue))/ (highRPMValue - lowRPMValue));
 }
 
@@ -229,6 +242,9 @@ unsigned short lookupTwoDTableUS(twoDTableUS * Table, unsigned short Value){
 	}
 
 
+	if (highLookupValue == lowLookupValue){
+		return lowLookupValue;
+	}
 	/* Interpolate and return the value */
 	return lowLookupValue + (((signed long)((signed long)highLookupValue - lowLookupValue) * (Value - lowAxisValue))/ (highAxisValue - lowAxisValue));
 }
