@@ -47,3 +47,6 @@ DEUCECOUPE:
 	cd src/main; CLIFLAGS="$@" make clean EvenTeeth-Cam-6and1
 PETERTRUCK:
 	cd src/main; CLIFLAGS="$@" make clean MissingTeeth-Cam-12minus1
+UNIT_TESTS:
+	cd Tests; make clean UnitTests; ./UnitTests
+

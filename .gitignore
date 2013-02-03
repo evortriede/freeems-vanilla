@@ -1,3 +1,7 @@
+Tests/src/tests/*.o
+Tests/src/tests/*.d
+Tests/UnitTests
+
 Debug/
 
 # Doxygen build files and output
