@@ -1,3 +1,6 @@
+.csettings/cdt.managedbuild.toolchain*
+.csettings/0*
+
 Tests/src/tests/*.o
 Tests/src/tests/*.d
 Tests/UnitTests

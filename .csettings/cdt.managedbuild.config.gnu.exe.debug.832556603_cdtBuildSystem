@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 5.0.0?>
+
+<cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage2">
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="Unit Tests" id="cdt.managedbuild.config.gnu.exe.debug.832556603" name="Tests" parent="cdt.managedbuild.config.gnu.exe.debug">
+			<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.832556603." name="/" resourcePath="">
+				<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1113967835" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug">
+					<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug.691728816" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
+					<builder buildPath="${workspace_loc:/UnitTests/Debug}" id="cdt.managedbuild.target.gnu.builder.exe.debug.811600841" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
+					<tool id="cdt.managedbuild.tool.gnu.archiver.base.1025104018" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
+					<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1894747376" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
+						<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1131018623" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+						<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.284611270" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+						<option id="gnu.cpp.compiler.option.include.paths.1973633334" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+							<listOptionValue builtIn="false" value="/home/eric/gtest-1.6.0/include"/>
+							<listOptionValue builtIn="false" value="&quot;${workspace_loc:/freeems-vanilla/src/main}&quot;"/>
+						</option>
+						<option id="gnu.cpp.compiler.option.other.other.1447472652" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -fpermissive" valueType="string"/>
+						<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.339644397" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+					</tool>
+					<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.707524828" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
+						<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1161179526" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
+						<option id="gnu.c.compiler.exe.debug.option.debugging.level.366326523" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+						<option id="gnu.c.compiler.option.include.paths.870819771" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+							<listOptionValue builtIn="false" value="/home/eric/gtest-1.6.0/include"/>
+							<listOptionValue builtIn="false" value="&quot;${workspace_loc:/freeems-vanilla/src/main}&quot;"/>
+						</option>
+						<option id="gnu.c.compiler.option.misc.other.164671319" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fpermissive" valueType="string"/>
+						<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1083351769" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+					</tool>
+					<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.89002609" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
+					<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.2073127435" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
+						<option id="gnu.cpp.link.option.paths.1434589922" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+							<listOptionValue builtIn="false" value="/home/eric/gtest-1.6.0/make"/>
+						</option>
+						<option id="gnu.cpp.link.option.libs.1129867962" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+							<listOptionValue builtIn="false" value=":gtest_main.a"/>
+							<listOptionValue builtIn="false" value="pthread"/>
+						</option>
+						<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1666745529" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+							<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+							<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+						</inputType>
+					</tool>
+					<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.92234816" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
+						<option id="gnu.both.asm.option.include.paths.509531819" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+							<listOptionValue builtIn="false" value="/home/eric/gtest-1.6.0/include"/>
+							<listOptionValue builtIn="false" value="&quot;${workspace_loc:/freeems-vanilla/src/main}&quot;"/>
+						</option>
+						<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1746613362" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+					</tool>
+				</toolChain>
+			</folderInfo>
+			<sourceEntries>
+				<entry excluding="main" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+			</sourceEntries>
+		</configuration>
+	</storageModule>
+</cproject>

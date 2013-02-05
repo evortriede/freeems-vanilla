@@ -38,19 +38,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: UnitTests
+all: freeems-vanilla
 
 # Tool invocations
-UnitTests: $(OBJS) $(USER_OBJS)
+freeems-vanilla: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/home/eric/gtest-1.6.0/make -o "UnitTests" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/home/eric/gtest-1.6.0/make -o "freeems-vanilla" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) UnitTests
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) freeems-vanilla
 	-@echo ' '
 
 .PHONY: all clean dependents
