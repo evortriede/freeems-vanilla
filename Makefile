@@ -48,5 +48,5 @@ DEUCECOUPE:
 PETERTRUCK:
 	cd src/main; CLIFLAGS="$@" make clean MissingTeeth-Cam-12minus1
 UNIT_TESTS:
-	cd Tests; make clean UnitTests; ./UnitTests
+	cd Tests; make clean freeems-vanilla; ./freeems-vanilla
 
