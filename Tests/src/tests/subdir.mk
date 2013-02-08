@@ -23,7 +23,7 @@ CPP_DEPS += \
 src/tests/%.o: ../src/tests/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/home/eric/gtest-1.6.0/include -I"/home/eric/freeEMSUnitTest/freeems-vanilla/src/main" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I"/home/eric/freeEMSUnitTest/freeems-vanilla/src/main" -I/usr/share/gtest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
