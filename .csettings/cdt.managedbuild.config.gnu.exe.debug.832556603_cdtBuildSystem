@@ -13,8 +13,8 @@
 						<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1131018623" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 						<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.284611270" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 						<option id="gnu.cpp.compiler.option.include.paths.1973633334" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-							<listOptionValue builtIn="false" value="&quot;${workspace_loc:/freeems-vanilla/src/main}&quot;"/>
-							<listOptionValue builtIn="false" value="/usr/share/gtest-1.6.0/include"/>
+							<listOptionValue builtIn="false" value="../src/main"/>
+							<listOptionValue builtIn="false" value="../gtest/include"/>
 						</option>
 						<option id="gnu.cpp.compiler.option.other.other.1447472652" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -fpermissive" valueType="string"/>
 						<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.339644397" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -23,8 +23,8 @@
 						<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1161179526" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 						<option id="gnu.c.compiler.exe.debug.option.debugging.level.366326523" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 						<option id="gnu.c.compiler.option.include.paths.870819771" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-							<listOptionValue builtIn="false" value="&quot;${workspace_loc:/freeems-vanilla/src/main}&quot;"/>
-							<listOptionValue builtIn="false" value="/usr/share/gtest-1.6.0/include"/>
+							<listOptionValue builtIn="false" value="../src/main"/>
+							<listOptionValue builtIn="false" value="../gtest/include"/>
 						</option>
 						<option id="gnu.c.compiler.option.misc.other.164671319" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fpermissive" valueType="string"/>
 						<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1083351769" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
@@ -45,8 +45,8 @@
 					</tool>
 					<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.92234816" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
 						<option id="gnu.both.asm.option.include.paths.509531819" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
-							<listOptionValue builtIn="false" value="&quot;${workspace_loc:/freeems-vanilla/src/main}&quot;"/>
-							<listOptionValue builtIn="false" value="/usr/share/gtest-1.6.0/include"/>
+							<listOptionValue builtIn="false" value="../src/main"/>
+							<listOptionValue builtIn="false" value="../gtest/include"/>
 						</option>
 						<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1746613362" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 					</tool>
